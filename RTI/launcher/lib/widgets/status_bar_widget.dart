@@ -11,8 +11,13 @@ class StatusBar extends StatefulWidget {
 class StatusBarState extends State<StatusBar> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: DigitalClock(),
+    return Container(
+      decoration: const BoxDecoration(
+        border: Border(bottom: BorderSide(color: Colors.black, width: 3))
+      ),
+      child: const Center(
+        child: DigitalClock(),
+      ),
     );
   }
 }

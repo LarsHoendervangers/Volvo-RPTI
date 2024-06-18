@@ -10,6 +10,7 @@ export 'src/services/headunit_service.dart' show IHeadUnitService;
 export 'src/services/infrared_service.dart' show IInfraRedService;
 export 'src/services/twinwire_service.dart' show ITwinWireService;
 export 'src/services/notification_service.dart' show NotificationService;
+export 'src/services/gps_service.dart' show IGPSService, GPSListener;
  
 export 'src/ui/notification.dart' show Notification, NavigationalNotification, MusicNotification, NotificationLevel, NotificationListener;
 

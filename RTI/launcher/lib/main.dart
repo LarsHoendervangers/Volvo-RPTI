@@ -81,7 +81,7 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver, Sin
       showNotification(activeNotification);
     });
 
-    return const AppSelector();
+    return AppSelector();
   }
 
   @override

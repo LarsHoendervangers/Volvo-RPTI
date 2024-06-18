@@ -11,7 +11,8 @@ class AppSelector extends StatefulWidget {
 class AppSelectorState extends State<AppSelector> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         StatusBar(),
         Center(child: Text("TODO: Create horizontal app list")),

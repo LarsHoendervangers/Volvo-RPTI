@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "launcher"
+		},
+		{
+			"path": "rti_shared"
+		}
+	],
+	"settings": {}
+}

@@ -16,10 +16,7 @@ class MapView extends StatefulWidget {
 
 class _MapViewState extends State<MapView> {
   final TileProviders _providers = TileProviders({
-    'openmaptiles': MbTilesVectorTileProvider(
-            mbtiles: MbTiles(mbtilesPath: 'assets/maps/osm-2020-02-10-v3.11_europe_netherlands.mbtiles', gzip: true),
-            
-          ),
+    'openmaptiles': MbTilesVectorTileProvider(mbtiles: MbTiles(mbtilesPath: 'assets/maps/osm-2020-02-10-v3.11_europe_netherlands.mbtiles', gzip: true)),
   });
   final MapController _controller = MapController();
   late Style _style;
@@ -32,27 +29,24 @@ class _MapViewState extends State<MapView> {
 
   @override
   Widget build(BuildContext context) {
-    return  FlutterMap(
+    // _controller.mapEventStream.listen((event) {
+    //   event.
+    // });
+    return FlutterMap(
       mapController: _controller,
       options: const MapOptions(
         initialCenter: LatLng(51.471947668137794, 4.660155052028216),
+        initialZoom: 15,
         minZoom: 5,
-        maxZoom: 22,
-        interactionOptions: InteractionOptions(flags: InteractiveFlag.drag | InteractiveFlag.flingAnimation),
-        // interactiveFlags: InteractiveFlag.drag |
-        //   InteractiveFlag.flingAnimation |
-        //   InteractiveFlag.pinchMove |
-        //   InteractiveFlag.pinchZoom |
-        //   InteractiveFlag.doubleTapZoom
+        maxZoom: 18,
+        interactionOptions: InteractionOptions(flags: InteractiveFlag.drag | InteractiveFlag.flingAnimation | InteractiveFlag.scrollWheelZoom | InteractiveFlag.doubleTapZoom),
       ),
       children: [
-        // normally you would see TileLayer which provides raster tiles
-        // instead this vector tile layer replaces the standard tile layer
         VectorTileLayer(
           theme: _style.theme,
           sprites: _style.sprites,
-          // tileOffset: TileOffset.mapbox, enable with mapbox
-          tileProviders: _providers
+          tileProviders: _providers,
+          layerMode: VectorTileLayerMode.vector,
         ),
       ],
     );

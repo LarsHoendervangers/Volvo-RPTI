@@ -15,6 +15,15 @@ dependencies:
   bitsdojo_window: ^0.1.6
   scroll_snap_list: ^0.9.1
   timer_builder: ^2.0.0
+  vector_map_tiles: ^7.3.1
+  flutter_map: ^6.1.0
+  sqflite: ^2.3.3+1
+  sqflite_common_ffi_web: ^0.4.3+1
+  sqflite_common_ffi: ^2.3.3
+  latlong2: ^0.9.1
+  vector_tile_renderer: ^5.2.0
+  vector_map_tiles_mbtiles: ^1.0.0
+  mbtiles: ^0.4.0   
 
 dev_dependencies:
   flutter_test:
@@ -23,3 +32,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+   - assets/maps/
+   - assets/maps/netherlands.mbtiles

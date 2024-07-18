@@ -4,13 +4,17 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart' hide Notification, NotificationListener;
 import 'package:launcher/app_selector.dart';
 import 'package:launcher/theme_provider.dart';
+import 'package:launcher/widgets/maps/mapview.dart';
 import 'package:launcher/widgets/notification_widget.dart';
 import 'package:provider/provider.dart';
 
 import 'package:rti_shared/rti_shared.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 void main() {
-runApp(
+  sqfliteFfiInit();
+  databaseFactory = databaseFactoryFfi;
+  runApp(
     ChangeNotifierProvider(
       create: (_) => ThemeProvider(),
       child: const MainApp(),
@@ -81,7 +85,8 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver, Sin
       showNotification(activeNotification);
     });
 
-    return AppSelector();
+    // return AppSelector();
+    return const MapView();
   }
 
   @override

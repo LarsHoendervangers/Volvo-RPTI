@@ -11,6 +11,8 @@ export 'src/services/infrared_service.dart' show IInfraRedService;
 export 'src/services/twinwire_service.dart' show ITwinWireService;
 export 'src/services/notification_service.dart' show NotificationService;
 export 'src/services/gps_service.dart' show IGPSService, GPSListener;
+
+export 'src/app_workers/carplay_worker.dart' show CarplayWorker;
  
 export 'src/ui/notification.dart' show Notification, NavigationalNotification, MusicNotification, NotificationLevel, NotificationListener;
 

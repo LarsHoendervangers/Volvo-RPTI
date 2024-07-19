@@ -13,7 +13,7 @@ class StatusBarState extends State<StatusBar> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(color: Colors.black, width: 3))
+        // border: Border(bottom: BorderSide(color: Colors.black, width: 3))
       ),
       child: const Center(
         child: DigitalClock(),

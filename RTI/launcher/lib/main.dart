@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:bitsdojo_window/bitsdojo_window.dart';
+// import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart' hide Notification, NotificationListener;
 import 'package:launcher/app_selector.dart';
 import 'package:launcher/theme_provider.dart';
@@ -20,19 +20,6 @@ void main() {
       child: const MainApp(),
     ),
   );
-
-  if (Platform.isWindows) {
-    appWindow.show();
-    doWhenWindowReady(() {
-      final win = appWindow;
-      const initialSize = Size(800, 480);
-      
-      win.minSize = initialSize;
-      win.size = initialSize;
-      win.title = "Flutter RTI - Development";
-      win.show();
-    });
-  }
 }
 
 class MainApp extends StatelessWidget {
@@ -40,6 +27,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CarplayWorker worker = CarplayWorker();
+    worker.connectToDongle();
+
     return const MaterialApp(
       home: Scaffold(
         body: HomeScreen()
@@ -85,13 +75,14 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver, Sin
       showNotification(activeNotification);
     });
 
-    // return AppSelector();
-    return const MapView();
+    return AppSelector();
+    // return const MapView();
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    CarplayWorker().dispose();
     super.dispose();
     ServiceProvider().notificationService.unsubscribe(this);
   }

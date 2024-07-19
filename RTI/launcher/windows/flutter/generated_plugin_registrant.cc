@@ -6,9 +6,9 @@
 
 #include "generated_plugin_registrant.h"
 
-#include <bitsdojo_window_windows/bitsdojo_window_plugin.h>
+#include <quick_usb/quick_usb_plugin.h>
 
 void RegisterPlugins(flutter::PluginRegistry* registry) {
-  BitsdojoWindowPluginRegisterWithRegistrar(
-      registry->GetRegistrarForPlugin("BitsdojoWindowPlugin"));
+  QuickUsbPluginRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("QuickUsbPlugin"));
 }

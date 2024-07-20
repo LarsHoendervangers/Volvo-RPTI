@@ -23,6 +23,11 @@ dependencies:
   vector_tile_renderer: ^5.2.0
   vector_map_tiles_mbtiles: ^1.0.0
   mbtiles: ^0.4.0   
+  flutterpi_gstreamer_video_player: ^0.1.1+1
+  video_player: ^2.9.1
+  chewie: ^1.5.0
+  file: ^7.0.0
+  path_provider: ^2.0.15
 
 dev_dependencies:
   flutter_test:

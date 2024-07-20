@@ -12,8 +12,10 @@ export 'src/services/twinwire_service.dart' show ITwinWireService;
 export 'src/services/notification_service.dart' show NotificationService;
 export 'src/services/gps_service.dart' show IGPSService, GPSListener;
 
-export 'src/app_workers/carplay_worker.dart' show CarplayWorker;
+export 'src/carplay/carplay.dart' show Carplay;
+export 'src/carplay/common.dart' show DongleConfig, DEFAULT_CONFIG, Message, VideoData, Plugged, Unplugged, MessageType, KeyFrame;
  
 export 'src/ui/notification.dart' show Notification, NavigationalNotification, MusicNotification, NotificationLevel, NotificationListener;
 
 export 'src/util/logger.dart' show Logger, LogLevel;
+export 'src/util/terminal.dart' show Terminal;

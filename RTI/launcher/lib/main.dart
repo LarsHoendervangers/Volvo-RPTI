@@ -4,16 +4,19 @@ import 'dart:io';
 import 'package:flutter/material.dart' hide Notification, NotificationListener;
 import 'package:launcher/app_selector.dart';
 import 'package:launcher/theme_provider.dart';
+import 'package:launcher/widgets/apps/carplay_player.dart';
 import 'package:launcher/widgets/maps/mapview.dart';
 import 'package:launcher/widgets/notification_widget.dart';
 import 'package:provider/provider.dart';
 
 import 'package:rti_shared/rti_shared.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:flutterpi_gstreamer_video_player/flutterpi_gstreamer_video_player.dart';
 
 void main() {
   sqfliteFfiInit();
   databaseFactory = databaseFactoryFfi;
+  FlutterpiVideoPlayer.registerWith();
   runApp(
     ChangeNotifierProvider(
       create: (_) => ThemeProvider(),
@@ -27,16 +30,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CarplayWorker worker = CarplayWorker();
-    worker.connectToDongle();
-
     return const MaterialApp(
       home: Scaffold(
         body: HomeScreen()
       )
     );
   }
-
 }
 
 class HomeScreen extends StatefulWidget {
@@ -75,14 +74,14 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver, Sin
       showNotification(activeNotification);
     });
 
-    return AppSelector();
+    return Center(child: CarplayPlayer());
+    // return AppSelector();
     // return const MapView();
   }
 
   @override
   void dispose() {
     _controller.dispose();
-    CarplayWorker().dispose();
     super.dispose();
     ServiceProvider().notificationService.unsubscribe(this);
   }
